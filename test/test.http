@@ -1,2 +1,4 @@
-### GET Test
-GET http://127.0.0.1:3000 HTTP/1.1
+### GET SINGLE ID OF USER
+GET http://127.0.0.1:3000/us HTTP/1.1
+
+
