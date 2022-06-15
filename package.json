@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/EraldoAbedini/TODOAPP/issues"
   },
-  "homepage": "https://github.com/EraldoAbedini/TODOAPP#readme"
+  "homepage": "https://github.com/EraldoAbedini/TODOAPP#readme",
+  "dependencies": {
+    "fastify": "^4.0.2",
+    "fastify-formbody": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
