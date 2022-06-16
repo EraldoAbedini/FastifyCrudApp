@@ -32,4 +32,21 @@ const getUsersID = {
         }
     }
 };
-module.exports = { getUSERSopts, getUsersID };
+
+const postUser = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    id: { type: 'string' },
+                    first_name: { type: 'string' },
+                    last_name: { type: 'string' },
+                    email: { type: 'string' }
+                }
+            }
+        }
+    }
+};
+
+module.exports = { getUSERSopts, getUsersID, postUser };

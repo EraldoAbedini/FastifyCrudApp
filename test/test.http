@@ -4,6 +4,16 @@ GET http://127.0.0.1:3000/ HTTP/1.1
 ### GET ALL USERS ID
 GET http://127.0.0.1:3000/1 HTTP/1.1
 
+### GET ALL USERS ID
+POST http://127.0.0.1:3000/ HTTP/1.1
+Content-Type: application/json
+
+{
+        "first_name": "Eraldo",
+        "last_name": "Abedin",
+        "email": "abedinieraldo@gmail.com"
+}
+
 
 
 
