@@ -29,9 +29,9 @@ function todoRoutes(fastify, options, done) {
 
     fastify.put("/:id", updateUser, (request, reply) => {
         const { id } = request.params;
-        const { first_name } = request.body;
+        const { email } = request.body;
         const user = Users.find((user) => user.id === id);
-        user.first_name = first_name;
+        user.email = email;
         reply.send(user);
     });
 

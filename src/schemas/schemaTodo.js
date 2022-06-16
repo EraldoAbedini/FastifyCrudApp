@@ -66,17 +66,15 @@ const deleteUser = {
 const updateUser = {
     schema: {
         body: {
-            type: "object",
-            required: ["first_name"],
-            properties: {
-                first_name: { type: 'string' },
-            }
+            type: 'object',
+            required: ['email'],
+            properties: { email: { type: 'string' } }
         },
         response: {
             200: {
                 type: 'object',
                 properties: {
-                    first_name: { type: 'string' },
+                    email: { type: 'string' }
                 }
             }
         }
