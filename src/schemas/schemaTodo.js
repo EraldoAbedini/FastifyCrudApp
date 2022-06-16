@@ -49,4 +49,18 @@ const postUser = {
     }
 };
 
-module.exports = { getUSERSopts, getUsersID, postUser };
+const deleteUser = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    message: { type: 'string' }
+                }
+            }
+        }
+    }
+};
+
+
+module.exports = { getUSERSopts, getUsersID, postUser, deleteUser };
