@@ -1,6 +1,8 @@
 let Users = require('../Users')
+// const getUsers = require('../schemas/schemaTodo')
 
 function todoRoutes(fastify, options, done) {
+
     fastify.get('/us', function (request, reply) {
         reply.send(Users)
     })
