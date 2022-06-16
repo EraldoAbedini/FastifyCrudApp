@@ -1,13 +1,13 @@
 let Users = require('../Users')
-// const getUsers = require('../schemas/schemaTodo')
+const { getUSERSopts, getUsersID } = require('../schemas/schemaTodo')
 
 function todoRoutes(fastify, options, done) {
 
-    fastify.get('/', function (request, reply) {
+    fastify.get('/', getUSERSopts, function (request, reply) {
         reply.send(Users)
     })
 
-    fastify.get('/:id', function (request, reply) {
+    fastify.get('/:id', getUsersID, function (request, reply) {
         const { id } = request.params
         const user = Users.find((u) => u.id === id)
         reply.send(user)
