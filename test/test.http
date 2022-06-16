@@ -1,4 +1,10 @@
 ### GET ALL USERS
 GET http://127.0.0.1:3000/us HTTP/1.1
 
+### GET ALL USERS ID
+GET http://127.0.0.1:3000/use/1 HTTP/1.1
+
+
+
+
 

@@ -1,9 +1,14 @@
-let users = require('/mnt/c/Users/User/Desktop/TODOAPP/src/Users.js')
+let Users = require('../Users')
 
 function todoRoutes(fastify, options, done) {
+    fastify.get('/us', function (request, reply) {
+        reply.send(Users)
+    })
 
-    fastify.get('/us', (request, reply) => {
-        reply.send(users)
+    fastify.get('/use/:id', function (request, reply) {
+        const { id } = request.params
+        const user = Users.find((u) => u.id === id)
+        reply.send(user)
     })
 
     done()
