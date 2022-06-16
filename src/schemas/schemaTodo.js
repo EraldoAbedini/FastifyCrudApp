@@ -6,23 +6,30 @@ const getUSERSopts = {
                 users: {
                     type: 'object',
                     properties: {
-                        id: {
-                            type: 'string'
-                        },
-                        first_name: {
-                            type: 'string'
-                        },
-                        last_name: {
-                            type: 'string'
-                        },
-                        email: {
-                            type: 'string'
-                        }
+                        id: { type: 'string' },
+                        first_name: { type: 'string' },
+                        last_name: { type: 'string' },
+                        email: { type: 'string' }
                     }
                 }
             }
         }
     }
-}
-module.exports = getUSERSopts;
-// module.exports = { getUSERSopts, getUsersID };
+};
+
+const getUsersID = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    id: { type: 'string' },
+                    first_name: { type: 'string' },
+                    last_name: { type: 'string' },
+                    email: { type: 'string' }
+                }
+            }
+        }
+    }
+};
+module.exports = { getUSERSopts, getUsersID };
