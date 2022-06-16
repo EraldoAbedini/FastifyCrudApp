@@ -1,5 +1,6 @@
 let Users = require('../Users')
-const { getUSERSopts, getUsersID, postUser, deleteUser } = require('../schemas/schemaTodo')
+const { getUSERSopts, getUsersID, postUser, deleteUser, updateUser } = require('../schemas/schemaTodo')
+const users = require('../Users')
 
 function todoRoutes(fastify, options, done) {
 
@@ -25,6 +26,14 @@ function todoRoutes(fastify, options, done) {
         Users = Users.filter((user) => user.id !== id)
         reply.send(`User with id ${id} got deleted!`)
     })
+
+    fastify.put("/:id", updateUser, (request, reply) => {
+        const { id } = request.params;
+        const { first_name } = request.body;
+        const user = Users.find((user) => user.id === id);
+        user.first_name = first_name;
+        reply.send(user);
+    });
 
     done()
 }

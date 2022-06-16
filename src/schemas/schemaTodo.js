@@ -63,4 +63,26 @@ const deleteUser = {
 };
 
 
-module.exports = { getUSERSopts, getUsersID, postUser, deleteUser };
+const updateUser = {
+    schema: {
+        body: {
+            type: "object",
+            required: ["first_name"],
+            properties: {
+                first_name: { type: 'string' },
+            }
+        },
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    first_name: { type: 'string' },
+                }
+            }
+        }
+    }
+}
+
+
+
+module.exports = { getUSERSopts, getUsersID, postUser, deleteUser, updateUser };
