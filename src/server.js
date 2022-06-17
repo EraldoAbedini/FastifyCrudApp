@@ -31,7 +31,7 @@ app.get('/time', (req, reply) => {
     }
 })
 
-app.listen(3000, (error, address) => {
+app.listen(3001, (error, address) => {
     if (error) {
         app.log.error(error)
         process.exit(1)

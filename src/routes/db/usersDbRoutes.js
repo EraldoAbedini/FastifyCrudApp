@@ -2,7 +2,8 @@ const {
     getUSERSopts,
     getUsersID,
     postUser,
-    deleteUser
+    deleteUser,
+    updateUser
 } = require('./../../schemas/schemaTodo');
 
 const todoUserDb = async (fastify, options, done) => {
@@ -37,7 +38,6 @@ const todoUserDb = async (fastify, options, done) => {
     })
 
     fastify.post('/', postUser, async (request, reply) => {
-
         try {
             const client = await fastify.pg.connect();
             const { first_name, last_name, email } = request.body
@@ -65,7 +65,24 @@ const todoUserDb = async (fastify, options, done) => {
         finally {
             client.release();
         }
-    });
+    })
+
+    fastify.put("/:id", updateUser, async (request, reply) => {
+        try {
+            const client = await fastify.pg.connect();
+            const { id } = request.params;
+            const { first_name, last_name, email } = request.body;
+            const { rows } = await fastify.pg.query(
+                "UPDATE Users SET first_name = $2, last_name = $3, email = $4 WHERE id = $1 RETURNING *", [id, first_name, last_name, email]);
+            reply.code(201).send(rows[0]);
+        }
+        catch (err) {
+            reply.send(err);
+        }
+        finally {
+            client.release();
+        }
+    })
 
     done()
 }

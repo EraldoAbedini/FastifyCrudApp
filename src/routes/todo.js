@@ -35,9 +35,9 @@ function todoRoutes(fastify, options, done) {
         user.last_name = last_name;
         user.email = email;
         reply.send(user);
-    });
+    })
 
-    done()  
+    done()
 }
 
 module.exports = { todoRoutes }
