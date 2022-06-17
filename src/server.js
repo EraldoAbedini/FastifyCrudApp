@@ -10,7 +10,7 @@ const app = build(
             { info: { title: "Fastify API", version: "1.0.0" } }
     },
     {
-        connectionString: 'postgres://postgres:postgres@localhost:5432/postgres'
+        connectionString: 'postgres://postgres:postgres@127.0.0.1:5432/postgres'
     }
 );
 
