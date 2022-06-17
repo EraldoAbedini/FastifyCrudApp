@@ -2,7 +2,7 @@
 GET http://127.0.0.1:3000/ HTTP/1.1
 
 ### GET ALL USERS ID
-GET http://127.0.0.1:3000/5 HTTP/1.1
+GET http://127.0.0.1:3000/8 HTTP/1.1
 
 ### POST A USER
 POST http://127.0.0.1:3000/ HTTP/1.1
@@ -18,10 +18,13 @@ Content-Type: application/json
 DELETE http://127.0.0.1:3000/3 HTTP/1.1
 
 ### UPDATE USER
-PUT http://127.0.0.1:3000/5 HTTP/1.1
+PUT http://127.0.0.1:3000/8 HTTP/1.1
 Content-Type: application/json
 
 {
-        "email": "email@gmail.com"
+        "first_name": "Michelle",
+        "last_name": "Rossi",
+        "email": "michellerossi@gmail.com"
 }
+
 
