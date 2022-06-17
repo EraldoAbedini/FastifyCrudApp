@@ -37,7 +37,7 @@ function todoRoutes(fastify, options, done) {
         reply.send(user);
     });
 
-    done()
+    done()  
 }
 
 module.exports = { todoRoutes }

@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/EraldoAbedini/TODOAPP#readme",
   "dependencies": {
+    "@fastify/postgres": "^5.0.0",
     "@fastify/swagger": "^7.3.0",
     "fastify": "^4.0.2",
-    "fastify-formbody": "^5.3.0"
+    "fastify-formbody": "^5.3.0",
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

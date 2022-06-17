@@ -1,11 +1,35 @@
 const { build } = require('./app')
 
-const app = build({ logger: true },
+const app = build(
     {
-        exposeRoute: true, routePrefix: '/docs', swagger:
+        logger: true
+    },
+    {
+        exposeRoute: true,
+        routePrefix: '/docs', swagger:
             { info: { title: "Fastify API", version: "1.0.0" } }
+    },
+    {
+        connectionString: 'postgres://postgres:postgres@localhost:5432/postgres'
     }
-)
+);
+
+app.get('/time', (req, reply) => {
+
+    app.pg.connect(onConnect)
+
+    function onConnect(err, client, release) {
+        if (err) return reply.send(err)
+
+        client.query(
+            'SELECT now()',
+            function onResult(err, result) {
+                release()
+                reply.send(err || result.rows[0])
+            }
+        )
+    }
+})
 
 app.listen(3000, (error, address) => {
     if (error) {

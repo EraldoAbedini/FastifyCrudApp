@@ -27,4 +27,5 @@ Content-Type: application/json
         "email": "michellerossi@gmail.com"
 }
 
-
+###  DB TEST
+GET http://127.0.0.1:3000/time HTTP/1.1
