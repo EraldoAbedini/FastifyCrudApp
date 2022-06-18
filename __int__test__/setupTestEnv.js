@@ -5,7 +5,7 @@ const Table_Test = "CREATE TABLE IF NOT EXISTS users (id SERIAL, first_name VARC
 const clearTableSQL = "DELETE FROM users";
 const insertItemsSQL = "INSERT INTO users (first_name, last_name, email, gross_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4, $5, $6)"
 
-module.exports = setupTestEnv = () => {
+module.exports = function setupTestEnv() {
     const app = build(
         { logger: true }, {},
         { connectionString: env.POSTGRES_TEST_DB_CONNECTION_STRING }
@@ -17,11 +17,11 @@ module.exports = setupTestEnv = () => {
         await app.pg.query(clearTableSQL)
     })
 
-    beforeEach(async => {
-        await.pg.query(insertItemsSQL, ["Test User", "This is a test for user", 20, 16.67, 3.33])
+    beforeEach(async () => {
+        await app.pg.query(insertItemsSQL, ["Test User", "This is a test for user", 20, 16.67, 3.33])
     })
 
-    afterEach(async => {
+    afterEach(async () => {
         await app.pg.query(clearTableSQL)
     })
 
