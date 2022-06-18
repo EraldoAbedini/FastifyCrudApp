@@ -13,4 +13,4 @@ const build = (options = {}, optsSwagger = {}, optsPostgres = {}) => {
     app.register(todoUserDb, { prefix: '/v2' })
     return app
 }
-module.exports = { build }
+module.exports = { build }  
