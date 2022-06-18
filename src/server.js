@@ -1,4 +1,5 @@
 const { build } = require('./app')
+const env = require('./config/env')
 
 const app = build(
     {
@@ -10,7 +11,7 @@ const app = build(
             { info: { title: "Fastify API", version: "1.0.0" } }
     },
     {
-        connectionString: 'postgres://postgres:postgres@127.0.0.1:5432/postgres'
+        connectionString: env.POSTGRES_DB_CONNECTION_STRING
     }
 );
 
@@ -31,7 +32,7 @@ app.get('/time', (req, reply) => {
     }
 })
 
-app.listen(3001, '0.0.0.0', (error, address) => {
+app.listen(env.WEB_APP_HOST, '0.0.0.0', (error, address) => {
     if (error) {
         app.log.error(error)
         process.exit(1)
